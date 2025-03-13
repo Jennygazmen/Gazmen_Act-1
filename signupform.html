@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #846363;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .form-container {
+            background:rgb(119, 115, 115);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #dbdbdb;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus {
+            border-color: #0095f6;
+            outline: none;
+        }
+        .form-group button {
+            width: 100%;
+            padding: 12px;
+            background-color: #52758d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .form-group button:hover {
+            background-color: #007bbf;
+        }
+        .form-group .login-link {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #0095f6;
+        }
+        .form-group .login-link a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .form-group .login-link a:hover {
+            text-decoration: underline;
+        }
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+        .success-message {
+            color: green;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Sign Up</h2>
+    <form id="signupForm">
+        <div class="form-group">
+            <input type="text" id="username" name="username" placeholder="Username" required>
+        </div>
+        <div class="form-group">
+            <input type="email" id="email" name="email" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+            <input type="password" id="password" name="password" placeholder="Password" required>
+        </div>
+        <div class="form-group">
+            <button type="submit">Sign Up</button>
+        </div>
+        <div class="form-group login-link">
+            <p>Already have an account? <a href="#">Log in</a></p>
+        </div>
+        <div id="message" class="error-message"></div>
+    </form>
+</div>
+
+<script>
+    document.getElementById('signupForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Clear previous messages
+        const messageDiv = document.getElementById('message');
+        messageDiv.textContent = '';
+        messageDiv.className = '';
+
+        // Get input values
+        const username = document.getElementById('username').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        // Simulated sign-up process (for demonstration purposes)
+        if (username && email && password) {
+            messageDiv.textContent = 'Sign Up Successful!';
+            messageDiv.className = 'success-message';
+            // Here you can add code to send the data to your server
+        } else {
+            messageDiv.textContent = 'Please fill in all fields.';
+            messageDiv.className = 'error-message';
+        }
+    });
+</script>
+
+</body>
+</html>
